@@ -23,7 +23,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public List<Product> getProducts(ProductQueryParams productQueryParams) {
-       String sql ="SELECT product.product_id,product.product_name,product.category,product.image_url,product.price,product.stock,product.description,product.create_date,product.last_modified_date " +
+       String sql ="SELECT product.product_id,product.product_name,product.category,product.image_url,product.price,product.stock,product.description,product.created_date,product.last_modified_date " +
                "FROM product WHERE 1=1 ";
         Map<String, Object> map = new HashMap<>();
 
@@ -37,7 +37,7 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public Product getProducctById(Integer productId) {
-        String sql ="SELECT product.product_id,product.product_name,product.category,product.image_url,product.price,product.stock,product.description,product.create_date,product.last_modified_date " +
+        String sql ="SELECT product.product_id,product.product_name,product.category,product.image_url,product.price,product.stock,product.description,product.created_date,product.last_modified_date " +
                 "FROM product " +
                 "WHERE product_id= :productId";
 
@@ -56,8 +56,8 @@ public class ProductDaoImpl implements ProductDao {
 
     @Override
     public Integer createProduct(ProductRequest productRequest) {
-        String sql ="INSERT INTO product (product_name, category, image_url, price, stock, description, create_date, last_modified_date) VALUES" +
-                "(:productName,:category,:imageUrl,:price,:stock,:description,:createDate,:lastModifiedDate)";
+        String sql ="INSERT INTO product (product_name, category, image_url, price, stock, description, created_date, last_modified_date) VALUES" +
+                "(:productName,:category,:imageUrl,:price,:stock,:description,:createdDate,:lastModifiedDate)";
 
         Map<String,Object> map = new HashMap<>();
         map.put("productName",productRequest.getProductName());
@@ -68,7 +68,7 @@ public class ProductDaoImpl implements ProductDao {
         map.put("description",productRequest.getDescription());
 
         Date now = new Date();
-        map.put("createDate",now);
+        map.put("createdDate",now);
         map.put("lastModifiedDate",now);
 
         KeyHolder keyHolder = new GeneratedKeyHolder();

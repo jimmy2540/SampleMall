@@ -37,7 +37,7 @@ public class ProductController {
             @RequestParam(required = false) ProductCategory category,
             @RequestParam(required = false) String search,
             //排序
-            @RequestParam(defaultValue = "create_date") String orderBy,
+            @RequestParam(defaultValue = "created_date") String orderBy,
             @RequestParam(defaultValue = "desc") String sort,
             //分頁
             @RequestParam(defaultValue = "5") @Max(100) @Min(0) Integer limit,
@@ -56,7 +56,7 @@ public class ProductController {
     page.setLimit(limit);
     page.setOffset(offset);
     page.setTotal(total);
-    page.setResult(productList);
+    page.setResults(productList);
         return ResponseEntity.status(HttpStatus.OK).body(page);
 }
 

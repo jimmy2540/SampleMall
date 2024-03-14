@@ -4,7 +4,7 @@ import com.chun.samplemall.constant.ProductCategory;
 import lombok.Data;
 
 import java.sql.Timestamp;
-import java.util.Date;
+
 @Data
 public class Product {
     private Integer productId;
@@ -14,7 +14,7 @@ public class Product {
     private  Integer price;
     private  Integer stock;
     private  String description;
-    private  Timestamp createDate;
+    private  Timestamp createdDate;
     private Timestamp lastModifiedDate;
 
 }
